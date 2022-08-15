@@ -1,22 +1,27 @@
 class TwoSum:
 
     def __init__(self):
-        self.array = []
         self.hashMap = {}
         
 
     def add(self, number: int) -> None:
-        self.array.append(number)
-        self.hashMap[number] = len(self.array) - 1
+        if number in self.hashMap:
+            self.hashMap[number] += 1
+        else:
+            self.hashMap[number] = 1
         
 
     def find(self, value: int) -> bool:
-        for i, val in enumerate(self.array):
+        for val in self.hashMap.keys():
             diff = value - val
             
-            if diff in self.hashMap and self.hashMap[diff] != i:
-                
-                return True
+            if diff in self.hashMap:
+                if diff == val:
+                    if self.hashMap[diff] > 1:
+                        return True
+                    
+                else:
+                    return True
             
         
         return False
