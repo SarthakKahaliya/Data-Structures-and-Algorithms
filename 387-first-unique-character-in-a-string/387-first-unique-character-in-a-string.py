@@ -10,9 +10,10 @@ class Solution:
         
         for key, val in hashMap.items():
             if val == 1:
-                for i in range(len(s)):
-                    if s[i] == key:
-                        return i
+                return s.index(key)
+                # for i in range(len(s)):
+                #     if s[i] == key:
+                #         return i
                     
                     
         return -1
