@@ -1,5 +1,8 @@
 class Solution:
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+        
+        # O(max(m, n)) is the time complexity
+        
         p1 = 0
         p2 = 0
         
