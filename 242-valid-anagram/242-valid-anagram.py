@@ -1,6 +1,6 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        hashCount = dict()
+        hashCount = {}
         
         if len(s) != len(t):
             return False
