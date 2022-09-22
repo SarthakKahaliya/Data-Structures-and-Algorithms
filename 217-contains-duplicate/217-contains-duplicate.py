@@ -1,19 +1,10 @@
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
-        hashMap = {}
+        hashset = set()
         
-        for val in nums:
-            if val in hashMap:
+        for num in nums:
+            if num in hashset:
                 return True
-            else:
-                hashMap[val] = True
-                
-        return False
-
-#         nums.sort()
-    
-#         for i in range(len(nums)-1):
-#             if nums[i] == nums[i+1]:
-#                 return True
+            hashset.add(num)
             
-#         return False
+        return False
