@@ -1,28 +1,25 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        hashCountS = dict()
-        hashCountT = dict()
+        hashCount = dict()
         
         if len(s) != len(t):
             return False
         
         for i in range(len(s)):
-            if s[i] not in hashCountS:
-                hashCountS[s[i]] = 0
+            if s[i] not in hashCount:
+                hashCount[s[i]] = 0
+    
+            hashCount[s[i]] += 1
             
-            hashCountS[s[i]] += 1
             
+            if t[i] not in hashCount:
+                hashCount[t[i]] = 0
             
-            if t[i] not in hashCountT:
-                hashCountT[t[i]] = 0
-            
-            hashCountT[t[i]] += 1
+            hashCount[t[i]] -= 1
             
                 
-        for key in hashCountS.keys():
-            if key not in hashCountS or key not in hashCountT:
-                return False
-            if hashCountS[key] != hashCountT[key]:
+        for val in hashCount.values():
+            if val != 0:
                 return False
             
         return True
